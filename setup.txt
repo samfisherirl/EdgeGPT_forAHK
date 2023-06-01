@@ -1,0 +1,3 @@
+pip install --upgrade nuitka
+pip install --upgrade edgegpt
+python -m nuitka --standalone --disable-console path
