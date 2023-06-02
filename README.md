@@ -11,6 +11,9 @@ E.asyncAsk("whats the weather in fiji?")
 Loop {
     Sleep(1000)
     Msgbox(E.answer)
+    if (E.finished) {
+        break
+    }
 }
 
 E := EdgeGPT()
