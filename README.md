@@ -15,6 +15,19 @@ Loop {
         break
     }
 }
+
+
+;or async
+G := GUI()
+ed := G.Add("edit")
+
+Loop {
+    Sleep(1000)
+    ed.Value := E.answer ; streams value 
+    if (E.finished) {
+        break
+    }
+}
 ```
 
 
