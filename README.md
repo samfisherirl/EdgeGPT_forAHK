@@ -15,11 +15,6 @@ Loop {
         break
     }
 }
-
-E := EdgeGPT()
-E.asyncAsk("How can I travel there?")
-
-
 ```
 
 
