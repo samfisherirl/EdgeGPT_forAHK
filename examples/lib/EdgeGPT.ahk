@@ -1,0 +1,89 @@
+#Include variables.ahk
+/*
+G := EdgeGPT()
+G.asyncAsk("question is what day is italic?")
+
+Loop {
+    Sleep(100)
+    if (E.finished){
+        Msgbox(E.answer)
+        break
+    }
+}
+
+*/
+
+class EdgeGPT
+{
+    __New()
+    {
+        this.question := ""
+        this.answer := ""
+        this.history := ""
+        this.storage := ""
+        this.finished := false 
+        this.PID := ""
+        this.timer := ObjBindMethod(this, "streamAsk")
+    }
+    ask(question) {
+
+    }
+    asyncAsk(question) {
+        global ask_path, response_path, PID 
+        cleaner := FileOpen(response_path, "w")
+        cleaner.Write("")
+        found := 0
+        match := 0
+        this.clean()
+        FileAppend(question, ask_path)
+        Run(app, , , &PID)
+        this.PID := PID
+        loop 5 {
+            if ProcessExist(PID) {
+                break
+            }
+            else {
+                Sleep(20)
+            }
+        } 
+        SetTimer(this.timer, 10, 1000)
+    }
+    streamAsk() {
+        global response_path, history_storage
+        if ProcessExist(this.PID) {
+            try {
+                files := FileOpen(response_path, "r")
+                storage := files.Read()
+                files.Close()
+                if (history_storage != storage) {
+                    history_storage := storage
+                    this.answer := storage
+                }
+                Sleep(5)
+            } catch {
+                sleep(5)
+            }
+        }
+        else {
+            this.finished := True
+            SetTimer(this.timer, 0)
+        }
+    }
+
+    clean() {
+        global files_to_clean
+        for file in files_to_clean {
+            if FileExist(file) {
+                loop 3 {
+                    try {
+                        FileMove(ask_path, trash, 1)
+                    }
+                    catch {
+                        Sleep(1)
+                    }
+                }
+            }
+        }
+    }
+
+}

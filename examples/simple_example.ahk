@@ -1,4 +1,4 @@
-#Include EdgeGPT.ahk
+#Include %A_ScriptDir%\lib\EdgeGPT.ahk
 E := EdgeGPT()
 E.asyncAsk("whats the weather in fiji?")
 
