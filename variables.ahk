@@ -1,7 +1,11 @@
 a := A_ScriptDir
 response_path := a "\bot\output.txt"
+ask_path := a "\bot\ask.txt"
 trash := a "\bot\trash.txt"
 temp := a "\bot\for_reading.txt"
 app := a "\bot\EdgeGPT_forAHK.exe"
 storage := ""
-history := ""
+history_storage := ""
+files_to_clean := [response_path, trash, temp, ask_path]
+PID := ""
+question_storage := ""
