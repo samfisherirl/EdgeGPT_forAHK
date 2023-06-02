@@ -2,6 +2,23 @@
 EdgeGPT_forAHK
 
 You'll need to download this release to get this running: https://github.com/samfisherirl/EdgeGPT_forAHK/releases/download/v1/EdgeGPT_forAHK.zip
+```autohotkey
+#Include EdgeGPT.ahk
+E := EdgeGPT()
+E.asyncAsk("whats the weather in fiji?")
+
+
+Loop {
+    Sleep(1000)
+    Msgbox(E.answer)
+}
+
+E := EdgeGPT()
+E.asyncAsk("How can I travel there?")
+
+
+```
+
 
 Credit to the EdgeGPT creator
 https://github.com/acheong08/EdgeGPT
