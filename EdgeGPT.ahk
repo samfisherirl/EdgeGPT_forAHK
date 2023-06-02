@@ -1,8 +1,17 @@
 #Include variables.ahk
-
+/*
 G := EdgeGPT()
 G.asyncAsk("question is what day is italic?")
 
+Loop {
+    Sleep(100)
+    if (E.finished){
+        Msgbox(E.answer)
+        break
+    }
+}
+
+*/
 
 class EdgeGPT
 {
