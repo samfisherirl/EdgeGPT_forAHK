@@ -3,29 +3,17 @@ EdgeGPT_forAHK
 
 You'll need to download this release to get this running: https://github.com/samfisherirl/EdgeGPT_forAHK/releases/download/v1/EdgeGPT_forAHK.zip
 ```autohotkey
-#Include EdgeGPT.ahk
-E := EdgeGPT()
-E.asyncAsk("whats the weather in fiji?")
+#Include %A_ScriptDir%\lib\EdgeGPT.ahk
+botpath := A_ScriptDir "\bot\EdgeGPT_forAHK.exe"
+E := EdgeGPT(botpath)
+answer := E.Ask("whats the weather in fiji?")
+MsgBox(answer)
 
-
-Loop {
-    Sleep(1000)
-    if (E.finished) {
-        Msgbox(E.answer)
-        break
-    }
-}
-
-
-;or async
-G := GUI()
-ed := G.Add("edit")
-
-Loop {
-    Sleep(1000)
-    ed.Value := E.answer ; streams value 
-    if (E.finished) {
-        break
+E.asyncAsk("How can I travel there?")
+loop {
+    ans := E.answer ; streams to string the answer in pieces
+    if E.finished {
+        MsgBox(ans)
     }
 }
 ```
