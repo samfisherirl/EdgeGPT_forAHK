@@ -2,51 +2,65 @@
 /*
 G := EdgeGPT()
 G.asyncAsk("question is what day is italic?")
-
-Loop {
-    Sleep(100)
-    if (E.finished){
-        Msgbox(E.answer)
-        break
-    }
-}
-
 */
 
 class EdgeGPT
 {
-    __New()
+    __New(bot)
     {
         this.question := ""
         this.answer := ""
         this.history := ""
         this.storage := ""
-        this.finished := false 
+        this.finished := false
+        this.bot := bot
         this.PID := ""
         this.timer := ObjBindMethod(this, "streamAsk")
+        this.async := False
+    }
+    asyncAsk(question){
+        this.async := True
+        this.AskQ(question)
+        SetTimer(this.timer, 10)
     }
     ask(question) {
+        this.async := False
+        this.AskQ(question)
+        loop 
+        {
+            sleep(100)
+            this.streamAsk()
+            if (this.finished = True) {
+                return this.answer
+            }
+        }
 
     }
-    asyncAsk(question) {
-        global ask_path, response_path, PID 
+    AskQ(question) {
+        global ask_path, response_path, PID
+        this.finished := False
         cleaner := FileOpen(response_path, "w")
         cleaner.Write("")
+        cleaner.Close()
         found := 0
         match := 0
         this.clean()
-        FileAppend(question, ask_path)
-        Run(app, , , &PID)
+        writer := FileOpen(ask_path, "w")
+        writer.Write(question)
+        writer.Close()
+        Run(this.bot, , , &PID)
         this.PID := PID
-        loop 5 {
-            if ProcessExist(PID) {
+        loop 5 
+        {
+            if ProcessExist(PID) 
+            {
                 break
             }
-            else {
+            else 
+            {
                 Sleep(20)
             }
-        } 
-        SetTimer(this.timer, 10)
+        }
     }
     streamAsk() {
         global response_path, history_storage
@@ -66,7 +80,9 @@ class EdgeGPT
         }
         else {
             this.finished := True
-            SetTimer(this.timer, 0)
+            if (this.async = True) {
+                SetTimer(this.timer, 0)
+            }
         }
     }
 
