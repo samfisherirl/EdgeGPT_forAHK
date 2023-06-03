@@ -1,24 +1,13 @@
 #Include %A_ScriptDir%\lib\EdgeGPT.ahk
-E := EdgeGPT()
-E.asyncAsk("whats the weather in fiji?")
-
-
-Loop {
-    Sleep(1000)
-    Msgbox(E.answer)
-    if (E.finished){
-        break
-    }
-}
-
-E := EdgeGPT()
+botpath := A_ScriptDir "\bot\EdgeGPT_forAHK.exe"
+E := EdgeGPT(botpath)
+answer := E.Ask("whats the weather in fiji?")
+MsgBox(answer)
 E.asyncAsk("How can I travel there?")
 
-
-Loop {
-    Sleep(100)
-    if (E.finished){
-        Msgbox(E.answer)
-        break
+loop {
+    ans := E.answer ; streams to string the answer in pieces
+    if E.finished {
+        MsgBox(ans)
     }
 }
