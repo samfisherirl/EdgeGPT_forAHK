@@ -1,7 +1,7 @@
 # EdgeGPT_forAHK
 EdgeGPT_forAHK
 
-You'll need to download this release to get this running: https://github.com/samfisherirl/EdgeGPT_forAHK/releases/download/v1/EdgeGPT_forAHK.zip
+You'll need to download this release to get this running: [https://github.com/samfisherirl/EdgeGPT_forAHK/releases/download/v1/EdgeGPT_forAHK.zip](https://github.com/samfisherirl/EdgeGPT_forAHK/releases/download/v1.01/EdgtGPT_forAHK.zip)
 ```autohotkey
 #Include %A_ScriptDir%\lib\EdgeGPT.ahk
 botpath := A_ScriptDir "\bot\EdgeGPT_forAHK.exe"
