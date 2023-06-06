@@ -2,11 +2,11 @@
 
 Forked from: https://github.com/acheong08/EdgeGPT
 
--ChatGPT 4 from Bing Chat
+- ChatGPT 4 from Bing Chat
 
--Internet Access
+- Internet Access
 
--Proxy and custom conversation 
+- Proxy and custom conversation style
 
 Cycles cookies, no key required. 
 
