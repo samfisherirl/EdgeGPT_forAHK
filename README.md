@@ -3,7 +3,9 @@
 Forked from: https://github.com/acheong08/EdgeGPT
 
 -ChatGPT 4 from Bing Chat
+
 -Internet Access
+
 -Proxy and custom conversation 
 
 Cycles cookies, no key required. 
