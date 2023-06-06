@@ -2,6 +2,10 @@
 
 Forked from: https://github.com/acheong08/EdgeGPT
 
+-ChatGPT 4 from Bing Chat
+-Internet Access
+-Proxy and custom conversation 
+
 Cycles cookies, no key required. 
 
 You'll need to download this release to get this running: [https://github.com/samfisherirl/EdgeGPT_forAHK/releases/download/v1/EdgeGPT_forAHK.zip](https://github.com/samfisherirl/EdgeGPT_forAHK/releases/download/v1.01/EdgtGPT_forAHK.zip)
