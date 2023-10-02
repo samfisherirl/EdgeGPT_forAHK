@@ -1,7 +1,7 @@
 # EdgeGPT_forAHK
 
 
-Update 10/2/23: this required I rewrite and compile the python. I have not done it in the same method as before as I dont have time. It will not stream responses. 
+Update 10/2/23: Edge changes require I rewrite and compile the python. I have not done it in the same method as before as I dont have time. It will not stream responses. 
 
 - Simply write one question to "ask.txt" in the same dir as the exe file posted in the github release here. https://github.com/samfisherirl/EdgeGPT_forAHK/releases
 - Upon close, the app will write the response in "answer.txt". 
